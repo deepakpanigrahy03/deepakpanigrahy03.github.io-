@@ -3,19 +3,20 @@
 # -----------------------------------------------------------------------------
 title: Aakash Tyagi
 first_name: Aakash
+middle_name:
 last_name: Tyagi
 email: tyagi@cse.tamu.edu
-url: https://deepakpanigrahy03.github.io
-baseurl: /aakashtyagi.github.io
 description: Zachry Teaching Professor, Texas A&M University CSE. Hardware verification, secure computing, ML for CAD, and agentic AI energy measurement.
 footer_text: >
   Texas A&M University · Department of Computer Science & Engineering
 keywords: hardware verification, secure computing, ML for CAD, agentic AI, EpG, Texas A&M, Aakash Tyagi
-
 lang: en
 icon: ⚡️
+url: https://deepakpanigrahy03.github.io
+baseurl: /aakashtyagi.github.io
 last_updated: true
 impressum_path:
+back_to_top: true
 
 # -----------------------------------------------------------------------------
 # Theme
@@ -38,25 +39,57 @@ feed_limit: 10
 navbar_fixed: true
 footer_fixed: true
 search_enabled: true
-socials_in_search: true
+socials_in_search: false
 bib_search: true
 
 # -----------------------------------------------------------------------------
-# Open Graph & Schema
+# Open Graph & Schema.org
 # -----------------------------------------------------------------------------
-serve_og_meta: true
-serve_schema_org: true
-og_image: /assets/img/prof_tyagi.jpg
+serve_og_meta: false
+serve_schema_org: false
+og_image:
 
 # -----------------------------------------------------------------------------
-# Social links (shown in sidebar)
+# Social integration
 # -----------------------------------------------------------------------------
-contact_note:
 github_username: aakashtyagi
+gitlab_username:
+x_username:
 linkedin_username:
 scholar_userid: mATRn2cAAAAJ
+semanticscholar_id:
+whatsapp_number:
 orcid_id:
+medium_username:
+quora_username:
+publons_id:
+lattes_id:
+osf_id:
 research_gate_profile: Aakash-Tyagi-4
+scopus_id:
+blogger_url:
+work_url:
+keybase_username:
+wikidata_id:
+wikipedia_id:
+dblp_url:
+stackoverflow_id:
+kaggle_id:
+discord_id:
+zoom_url:
+telegram_username:
+cv_url:
+contact_note:
+
+# -----------------------------------------------------------------------------
+# Analytics and search engine verification
+# -----------------------------------------------------------------------------
+google_analytics:
+cronitor_analytics:
+pirsch_analytics:
+openpanel_analytics:
+google_site_verification:
+bing_site_verification:
 
 # -----------------------------------------------------------------------------
 # Blog
@@ -65,6 +98,9 @@ blog_name:
 blog_nav_title:
 blog_description:
 permalink: /blog/:year/:title/
+lsi: false
+future: false
+markdown: kramdown
 
 # -----------------------------------------------------------------------------
 # Collections
@@ -79,9 +115,58 @@ collections:
     output: true
     permalink: /projects/:path/
 
-news_limit: 10
+announcements:
+  enabled: true
+  scrollable: true
+  limit: 5
+
 latest_posts:
   enabled: false
+  scrollable: true
+  limit: 3
+
+# -----------------------------------------------------------------------------
+# Jekyll settings
+# -----------------------------------------------------------------------------
+whitelist:
+  - jekyll-paginate
+  - jekyll-scholar
+
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    css_class: "highlight"
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      start_line: 1
+
+sass:
+  style: compressed
+
+# -----------------------------------------------------------------------------
+# Plugins
+# -----------------------------------------------------------------------------
+plugins:
+  - jekyll-archives
+  - jekyll-diagrams
+  - jekyll-email-protect
+  - jekyll-feed
+  - jekyll-get-json
+  - jekyll-imagemagick
+  - jekyll-jupyter-notebook
+  - jekyll-link-attributes
+  - jekyll-minifier
+  - jekyll-paginate
+  - jekyll-regex-replace
+  - jekyll-scholar
+  - jekyll-sitemap
+  - jekyll-tabs
+  - jekyll-toc
+  - jekyll-twitter-plugin
+  - jemoji
 
 # -----------------------------------------------------------------------------
 # jekyll-scholar
@@ -91,10 +176,6 @@ scholar:
   first_name: [Aakash, A.]
   style: apa
   locale: en
-  sort_by: year,month
-  order: descending
-  group_by: year
-  group_order: descending
   source: /_bibliography/
   bibliography: papers.bib
   bibliography_template: bib
@@ -107,34 +188,201 @@ scholar:
   details_layout: bibtex.html
   details_link: Details
   query: "@*"
+  group_by: year
+  group_order: descending
+  sort_by: year
+  order: descending
 
-# Badges
 enable_publication_badges: true
 enable_arxiv_badges: false
 enable_publication_thumbnails: false
 
-# -----------------------------------------------------------------------------
-# Plugins
-# -----------------------------------------------------------------------------
-plugins:
-  - jekyll-sitemap
-  - jekyll-feed
-  - jekyll-scholar
-  - jekyll-get-json
-  - jekyll-link-attributes
-  - jekyll-toc
+filtered_bibtex_keywords:
+  [
+    abbr,
+    abstract,
+    additional_info,
+    altmetric,
+    annotation,
+    arxiv,
+    award,
+    award_name,
+    bibtex_show,
+    blog,
+    code,
+    dimensions,
+    html,
+    inspire,
+    pdf,
+    poster,
+    preview,
+    selected,
+    slides,
+    supp,
+    video,
+    website,
+  ]
 
 # -----------------------------------------------------------------------------
-# Markdown
+# Jekyll Link Attributes
 # -----------------------------------------------------------------------------
-markdown: kramdown
-highlighter: rouge
-kramdown:
-  input: GFM
-  syntax_highlighter_opts:
-    css_class: highlight
-    span:
-      line_numbers: false
-    block:
-      line_numbers: false
-      start_line: 1
+external_links:
+  enabled: true
+  rel: external nofollow noopener
+  target: _blank
+  exclude:
+
+# -----------------------------------------------------------------------------
+# Jekyll Minifier
+# -----------------------------------------------------------------------------
+jekyll-minifier:
+  exclude: ["robots.txt"]
+  uglifier_args:
+    harmony: true
+
+# -----------------------------------------------------------------------------
+# Jekyll Archives
+# -----------------------------------------------------------------------------
+jekyll-archives:
+  enabled: [year, tags, categories]
+  layouts:
+    year: archive-year
+    tag: archive-tag
+    category: archive-category
+  permalinks:
+    year: "/blog/:year/"
+    tag: "/blog/tag/:name/"
+    category: "/blog/category/:name/"
+
+display_tags: ["formatting", "images", "links", "math", "code"]
+display_categories: []
+
+# -----------------------------------------------------------------------------
+# Jekyll ImageMagick
+# -----------------------------------------------------------------------------
+imagemagick:
+  enabled: false
+
+# -----------------------------------------------------------------------------
+# Jekyll Diagrams
+# -----------------------------------------------------------------------------
+jekyll-diagrams:
+  chartjs:
+    src:
+  mermaid:
+    src:
+  plantuml:
+    src:
+  vega:
+    src:
+  vega-lite:
+    src:
+
+# -----------------------------------------------------------------------------
+# Third Party Libraries
+# -----------------------------------------------------------------------------
+third_party_libraries:
+  download: false
+  bootstrap-table:
+    integrity:
+      css: "sha256-uRX+PiRTR4ysKFRjsTwUsb7wS0GDzRmA/VTRCUe/HCw="
+      js: "sha256-eEFKgMt1FtzjgCWWqOaqFe7gZN4b1Y7PjbGYPMeZFo4="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.4/dist/bootstrap-table.min.css"
+      js: "https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.4/dist/bootstrap-table.min.js"
+  chartjs:
+    integrity:
+      js: "sha256-0q+JdOlScWOHcunpUk21uab1jW7C1deBQARHtKMhOmI="
+    url:
+      js: "https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"
+  d3:
+    integrity:
+      js: "sha256-9KOAF8MYFkFSWxuZ3BNn1+ZBBkFnJMJMrTrwCofyOyA="
+    url:
+      js: "https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"
+  diff2html:
+    integrity:
+      css: "sha256-IMBK4VNZp0ivwefnf2TNhE2HxX9nXZfN/4d7GrOzr7Y="
+      js: "sha256-eU2TVHX633nBHCHMxFp1GfCh6T3hBjABzFBYPRUDzFg="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/diff2html@3.4.47/bundles/css/diff2html.min.css"
+      js: "https://cdn.jsdelivr.net/npm/diff2html@3.4.47/bundles/js/diff2html-ui.min.js"
+  echarts:
+    integrity:
+      js:
+        library: "sha256-GHFmOLFBRznV/4SBiBcOfPly80kf/q/hTvOEuQPMB5o="
+        dark_theme: "sha256-sm6Ui9w41++ZCWmIifeIfjtVIBb7FjRL51PgqPl4Kd8="
+    url:
+      js:
+        library: "https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"
+        dark_theme: "https://cdn.jsdelivr.net/npm/echarts@5.5.1/themes/dark.js"
+  fontawesome:
+    version: "6.4.2"
+    integrity:
+      css: "sha256-OkPlbllNMCkAMeL0/bL2OoCaCZoKWOQMGpVBQB3JOOM="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css"
+  jquery:
+    integrity:
+      js: "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    url:
+      js: "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
+  leaflet:
+    integrity:
+      css: "sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      js: "sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLEg="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css"
+      js: "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"
+  mathjax:
+    url:
+      js: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js"
+  mermaid:
+    version: "10.9.0"
+    integrity:
+      js: "sha256-Wij5ZWGM3x1dlEjKS/BrL0EuFEAkJNlkjbBH78XLPTM="
+    url:
+      js: "https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"
+  openlayers:
+    integrity:
+      css: "sha256-LijPWXSiDZWkSMJlEFxVVpG0QCNp+NQDA0m5T36mdTI="
+      js: "sha256-6jiCFScxSmv30sJJ6JHJGXiUw8mBl+n9+yHrqL2TSSA="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/ol@v10.1.0/ol.css"
+      js: "https://cdn.jsdelivr.net/npm/ol@v10.1.0/dist/ol.js"
+  plotly:
+    integrity:
+      js: "sha256-Fn1GjfbKOFWCCTp/JQi90ULkJM3AKHC4tYMNDQdBGns="
+    url:
+      js: "https://cdn.jsdelivr.net/npm/plotly.js@2.35.0/dist/plotly.min.js"
+  pseudocode:
+    integrity:
+      css: "sha256-VwBqpDTm7xyBKbpEPHfVEXVNGxBVTk+ep7mXNKfFjdk="
+      js: "sha256-tRXMHJqMgqMM97TxT8FTF+TdZDNM/RZVqZzn7J8bHio="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/pseudocode@2.4.1/build/pseudocode.min.css"
+      js: "https://cdn.jsdelivr.net/npm/pseudocode@2.4.1/build/pseudocode.min.js"
+  swiper:
+    integrity:
+      css: "sha256-yUoNxsvX+Vo8Trj3lZ/Y5ZBf8HlBFsB6Xwm7rH75/9E="
+      js: "sha256-BPrwikijIybg9OQC5SYFFqhBjERYOn97tCureFgYH1E="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/swiper@11.1.4/swiper-bundle.min.css"
+      js: "https://cdn.jsdelivr.net/npm/swiper@11.1.4/swiper-bundle.min.js"
+  vega:
+    integrity:
+      js: "sha256-Ovl85OHPeR1qNdsERbCYsHmqQ0kFXGTErkNv3KBJBFU="
+      js_lite: "sha256-OjZEnTGe/lTUqI4w0qq7bH8K5zGqMnbZoaConv28Hms="
+    url:
+      js: "https://cdn.jsdelivr.net/npm/vega@5.30.0/build/vega.min.js"
+      js_lite: "https://cdn.jsdelivr.net/npm/vega@5.30.0/build/vega-lite.min.js"
+  vega-embed:
+    integrity:
+      js: "sha256-FPCJ4OYFZG1IQtBhBBmhZJSaCnqb6IHGQ7ZLY9bUhFY="
+    url:
+      js: "https://cdn.jsdelivr.net/npm/vega-embed@6.26.0/build/vega-embed.min.js"
+  vega-lite:
+    integrity:
+      js: "sha256-TvBvIS5jUN4BSy009usRjNzjI1qRrHPYv7xVLJyjLocQ="
+    url:
+      js: "https://cdn.jsdelivr.net/npm/vega-lite@5.20.1/build/vega-lite.min.js"
