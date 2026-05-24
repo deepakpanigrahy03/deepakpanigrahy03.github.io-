@@ -39,8 +39,10 @@ feed_limit: 10
 navbar_fixed: true
 footer_fixed: true
 search_enabled: true
+enable_navbar_social: false
 socials_in_search: false
 bib_search: true
+
 
 # -----------------------------------------------------------------------------
 # Open Graph & Schema.org
