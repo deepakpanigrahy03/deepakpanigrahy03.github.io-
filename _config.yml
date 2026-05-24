@@ -3,9 +3,10 @@
 # -----------------------------------------------------------------------------
 title: Aakash Tyagi
 first_name: Aakash
-middle_name:
 last_name: Tyagi
 email: tyagi@cse.tamu.edu
+url: https://deepakpanigrahy03.github.io
+baseurl: /aakashtyagi.github.io
 description: Zachry Teaching Professor, Texas A&M University CSE. Hardware verification, secure computing, ML for CAD, and agentic AI energy measurement.
 footer_text: >
   Texas A&M University · Department of Computer Science & Engineering
